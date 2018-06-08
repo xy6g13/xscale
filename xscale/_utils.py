@@ -170,7 +170,7 @@ def get_dx(obj, dim, unit='s'):
 		The resolution of the coordinates associated to the dimension
 	"""
 	x = np.asarray(obj[dim])
-	if pd.core.common.is_datetime64_dtype(x):
+	if pd.core.dtypes.common.is_datetime64_dtype(x):
 		dx = pd.Series(x[1:]) - pd.Series(x[:-1])
 		dx /= np.timedelta64(1, unit)
 	else:
